@@ -1,0 +1,9 @@
+	"contato" : {
+		"nome" : "Paulo Ribeiro",
+		"departamento" : "Produção",
+		"cargo" : "Gerente",
+		"telefone" : "11-9563-2268",
+		"email" : "paulo.ribeiro@gmail.com",
+		"observacao" : "observacao do contato"
+	}
+}

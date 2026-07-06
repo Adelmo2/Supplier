@@ -16,4 +16,4 @@
 		"departamento" : "Produção",
 		"cargo" : "Gerente",
 		"email" : "paulo.ribeiro@gmail.com",
-		"telefone " : "11-9563-2268
+		"telefone" : "11-9563-2268

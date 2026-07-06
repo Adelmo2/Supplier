@@ -1,5 +1,6 @@
 package pre_supplier.supplier.preFornecedor;
 
-public record DadosCadastroPreFornecedor() {
-
+public enum ClasseJuridico {
+    F,
+    J
 }
