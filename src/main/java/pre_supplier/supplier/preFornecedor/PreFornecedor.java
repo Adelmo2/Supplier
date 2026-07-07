@@ -34,6 +34,11 @@ public class PreFornecedor {
     @Embedded
     private Endereco endereco;
 
+    private String email;
+    private String email_nfe;
+    private String telefone;
+    private String desc_atividade;
+
     public PreFornecedor(DadosCadastroPreFornecedor dados) {
         this.nome_fornecedor = dados.nome_fornecedor();
         this.nome_fantasia = dados.nome_fantasia();
@@ -44,5 +49,9 @@ public class PreFornecedor {
         this.num_inscr_munip = dados.num_inscr_munip();
         this.id_estrangeiro = dados.id_estrangeiro();
         this.endereco = new Endereco(dados.endereco());
+        this.email = dados.email();
+        this.email_nfe = dados.email_nfe();
+        this.telefone = dados.telefone();
+        this.desc_atividade = dados.desc_atividade();
     }
 }

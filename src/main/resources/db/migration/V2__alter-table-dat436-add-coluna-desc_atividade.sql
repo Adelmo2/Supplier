@@ -1,0 +1,1 @@
+alter table dat436 add desc_atividade varchar(60);

@@ -2,6 +2,7 @@ package pre_supplier.supplier.controller;
 
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,7 @@ public class PreFornecedorController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody DadosCadastroPreFornecedor dados) {
+    public void cadastrar(@RequestBody @Valid DadosCadastroPreFornecedor dados) {
         //System.out.println("Dados " + dados);
         //System.out.println("Cidade: " + dados.endereco().cidade());
         repository.save(new PreFornecedor(dados));

@@ -7,3 +7,29 @@
 		"observacao" : "observacao do contato"
 	}
 }
+
+---Forncedor
+{
+	"nome_fornecedor" : "MERCADO DO BAIRRO",
+	"nome_fantasia" : "DO BAIRRO",
+	"nome_compras" : "DO BAIRRO",
+	"classe_juridico" : "J",
+	"cnpj_cpf" : "123.456.789/0123-4",
+	"num_inscr_estad" : "123.456-78",
+	"num_inscr_munip" : "987.654-32",
+	"id_estrangeiro" : "",
+	"endereco" : {
+		"cod_logradouro" : "Rua",
+        "end_rua" : "Faria Lima",
+        "end_numero" : "125" ,
+        "end_compl" : "Casa",
+        "num_cep" : "12345678",
+        "end_bairro" : "Centro" ,
+        "end_cidade" : "São Bernardo do Campo",
+        "sigl_estado" : "SP",
+        "cod_cidade" : "1234"
+	},
+    "email" : "marcado.bairro@mercadodobairro.com.br",
+    "email_nfe" : "nfeo@mercadodobairro.com.br",
+    "telefone" : "11-97831-2512"
+}

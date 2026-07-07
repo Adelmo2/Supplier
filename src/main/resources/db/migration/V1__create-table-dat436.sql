@@ -18,7 +18,9 @@ create table dat436 (
     end_cidade varchar(40) not null,
     sigl_estado varchar(2) not null,
     cod_cidade varchar(4),
+    email varchar(70) not null,
+    email_nfe varchar(70),
+    telefone varchar(15),
 
     primary key(id_dat436)
-
 );
