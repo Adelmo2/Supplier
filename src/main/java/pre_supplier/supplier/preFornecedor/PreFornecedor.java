@@ -1,12 +1,12 @@
 package pre_supplier.supplier.preFornecedor;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import jakarta.validation.Valid;
+import lombok.*;
 import pre_supplier.supplier.endereco.Endereco;
 import pre_supplier.supplier.preFornecedor.dto.DadosCadastroPreFornecedor;
+
+import java.time.LocalDate;
 
 @Table(name = "dat436")
 @Entity(name = "PreFornecedor")
@@ -19,14 +19,18 @@ public class PreFornecedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_dat436")
     private Long id;
-    private String nome_fornecedor;
+
+    @Column(name = "nome_fornecedor")
+    private String nomefornecedor;
     private String nome_fantasia;
     private String nome_compras;
 
     @Enumerated(EnumType.STRING)
     private ClasseJuridico classe_juridico;
 
+    //@JsonIgnore
     private String cnpj_cpf;
+
     private String num_inscr_estad;
     private String num_inscr_munip;
     private String id_estrangeiro;
@@ -38,9 +42,11 @@ public class PreFornecedor {
     private String email_nfe;
     private String telefone;
     private String desc_atividade;
+    private String stat_cancel;
+    private LocalDate data_cancel;
 
     public PreFornecedor(DadosCadastroPreFornecedor dados) {
-        this.nome_fornecedor = dados.nome_fornecedor();
+        this.nomefornecedor = dados.nome_fornecedor();
         this.nome_fantasia = dados.nome_fantasia();
         this.nome_compras = dados.nome_compras();
         this.classe_juridico = dados.classe_juridico();
@@ -53,5 +59,22 @@ public class PreFornecedor {
         this.email_nfe = dados.email_nfe();
         this.telefone = dados.telefone();
         this.desc_atividade = dados.desc_atividade();
+    }
+
+    public void atualizarInformacoes(@Valid DadosAtualizacaoPreFornecedor dados) {
+        if (dados.nomefornecedor() != null) {
+            this.nomefornecedor = dados.nomefornecedor();
+        }
+        if (dados.telefone() != null) {
+            this.telefone = dados.telefone();
+        }
+        if (dados.endereco() != null) {
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
+    }
+
+    public void excluirPreForncedor() {
+        this.stat_cancel = "C";
+        this.data_cancel =  LocalDate.now();
     }
 }

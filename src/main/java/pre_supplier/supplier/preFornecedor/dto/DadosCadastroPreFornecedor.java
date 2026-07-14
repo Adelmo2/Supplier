@@ -4,9 +4,10 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import pre_supplier.supplier.contato.dto.Contato;
 import pre_supplier.supplier.endereco.DadosEndereco;
 import pre_supplier.supplier.preFornecedor.ClasseJuridico;
+
+import java.util.Date;
 
 public record DadosCadastroPreFornecedor(
 
@@ -34,7 +35,9 @@ public record DadosCadastroPreFornecedor(
 
         String email_nfe,
         String telefone,
-        String desc_atividade
+        String desc_atividade,
+        String stat_cancel,
+        Date data_cancel
 ) {
 
 }

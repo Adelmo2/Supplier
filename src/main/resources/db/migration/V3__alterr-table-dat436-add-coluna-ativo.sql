@@ -1,1 +1,2 @@
-alter table dat436 add desc_atividade varchar(60);
+alter table dat436 add stat_cancel varchar(1);
+alter table dat436 add data_cancel date;

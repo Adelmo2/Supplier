@@ -31,4 +31,31 @@ public class Endereco {
         this.sigl_estado = dados.sigl_estado();
         this.cod_cidade = dados.cod_cidade();
     }
+
+    public void atualizarInformacoes(DadosEndereco dados) {
+        if (dados.cod_logradouro() != null) {
+            this.cod_logradouro = dados.cod_logradouro();
+        }
+        if (dados.end_rua() != null) {
+            this.end_rua = dados.end_rua();
+        }
+        if (dados.end_numero() != null) {
+            this.end_numero = dados.end_numero();
+        }
+        if (dados.end_compl() != null) {
+            this.end_compl = dados.end_compl();
+        }
+        if (dados.num_cep() != null) {
+            this.num_cep = dados.num_cep();
+        }
+        if (dados.end_bairro() != null) {
+            this.end_bairro = dados.end_bairro();
+        }
+        if (dados.end_cidade() != null) {
+            this.end_cidade = dados.end_cidade();
+        }
+        if (dados.sigl_estado() != null) {
+            this.sigl_estado = dados.sigl_estado();
+        }
+    }
 }
