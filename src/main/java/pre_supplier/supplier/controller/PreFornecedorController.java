@@ -31,7 +31,7 @@ public class PreFornecedorController {
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPreFornecedor dados, UriComponentsBuilder uriBuilder) {
-        //é necessário retornar os codigos  201.
+        //é necessário retornar os codigos  201 (Created), para devolver o corpo, cabeçalho e o link do endereço.
         var preFornecedor = new PreFornecedor(dados);
         repository.save(preFornecedor);
 
@@ -58,7 +58,7 @@ public class PreFornecedorController {
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoPreFornecedor dados) {
-        System.out.println("* * * * * dados: " + dados);
+        //System.out.println("* * * * * dados: " + dados);
         var preFornecedor = repository.getReferenceById(dados.id());
         preFornecedor.atualizarInformacoes(dados);
 
@@ -77,5 +77,11 @@ public class PreFornecedorController {
         var preFornecedor = repository.getReferenceById(id);
         preFornecedor.excluirPreForncedor();
         return ResponseEntity.noContent().build(); //devolve 204 indicando que foi ok e que não tem conteúdo paa retornar.
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var preFornecedor = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoPreFornecedor(preFornecedor));
     }
 }

@@ -15,7 +15,8 @@ public record DadosDetalhamentoPreFornecedor(
         String email,
         String email_nfe,
         String telefone,
-        String desc_atividade
+        String desc_atividade,
+        String stat_cancel
 )
 {
     public DadosDetalhamentoPreFornecedor(PreFornecedor preFornecedor) {
@@ -32,7 +33,8 @@ public record DadosDetalhamentoPreFornecedor(
                 preFornecedor.getEmail(),
                 preFornecedor.getEmail_nfe(),
                 preFornecedor.getTelefone(),
-                preFornecedor.getDesc_atividade()
+                preFornecedor.getDesc_atividade(),
+                preFornecedor.getStat_cancel()
         );
     }
 }
