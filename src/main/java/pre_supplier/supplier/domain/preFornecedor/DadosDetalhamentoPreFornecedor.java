@@ -1,5 +1,5 @@
-package pre_supplier.supplier.preFornecedor;
-import pre_supplier.supplier.endereco.Endereco;
+package pre_supplier.supplier.domain.preFornecedor;
+import pre_supplier.supplier.domain.endereco.Endereco;
 
 public record DadosDetalhamentoPreFornecedor(
         Long id,

@@ -1,10 +1,10 @@
-package pre_supplier.supplier.preFornecedor;
+package pre_supplier.supplier.domain.preFornecedor;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.*;
-import pre_supplier.supplier.endereco.Endereco;
-import pre_supplier.supplier.preFornecedor.dto.DadosCadastroPreFornecedor;
+import pre_supplier.supplier.domain.endereco.Endereco;
+import pre_supplier.supplier.domain.preFornecedor.dto.DadosCadastroPreFornecedor;
 
 import java.time.LocalDate;
 

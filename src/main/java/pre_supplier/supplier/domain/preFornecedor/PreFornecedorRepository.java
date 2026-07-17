@@ -1,4 +1,4 @@
-package pre_supplier.supplier.preFornecedor;
+package pre_supplier.supplier.domain.preFornecedor;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

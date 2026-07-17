@@ -1,4 +1,4 @@
-package pre_supplier.supplier.endereco;
+package pre_supplier.supplier.domain.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package pre_supplier.supplier.endereco;
+package pre_supplier.supplier.domain.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

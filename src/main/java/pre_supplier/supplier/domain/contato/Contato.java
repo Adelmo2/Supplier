@@ -1,4 +1,4 @@
-package pre_supplier.supplier.contato.dto;
+package pre_supplier.supplier.domain.contato;
 
 public record Contato(
         String nome,

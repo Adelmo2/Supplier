@@ -1,4 +1,4 @@
-package pre_supplier.supplier.preFornecedor;
+package pre_supplier.supplier.domain.preFornecedor;
 
 public record DadosListagemPreFornecedor(
         Long id,

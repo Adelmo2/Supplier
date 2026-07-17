@@ -1,7 +1,7 @@
-package pre_supplier.supplier.preFornecedor;
+package pre_supplier.supplier.domain.preFornecedor;
 
 import jakarta.validation.constraints.NotNull;
-import pre_supplier.supplier.endereco.DadosEndereco;
+import pre_supplier.supplier.domain.endereco.DadosEndereco;
 
 public record DadosAtualizacaoPreFornecedor(
         @NotNull

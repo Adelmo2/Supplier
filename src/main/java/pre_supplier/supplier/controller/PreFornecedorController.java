@@ -1,6 +1,5 @@
 package pre_supplier.supplier.controller;
 
-
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,8 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import pre_supplier.supplier.preFornecedor.*;
-import pre_supplier.supplier.preFornecedor.dto.DadosCadastroPreFornecedor;
+import pre_supplier.supplier.domain.preFornecedor.*;
+import pre_supplier.supplier.domain.preFornecedor.dto.DadosCadastroPreFornecedor;
 
 import java.util.List;
 
@@ -76,7 +75,7 @@ public class PreFornecedorController {
 
         var preFornecedor = repository.getReferenceById(id);
         preFornecedor.excluirPreForncedor();
-        return ResponseEntity.noContent().build(); //devolve 204 indicando que foi ok e que não tem conteúdo paa retornar.
+        return ResponseEntity.noContent().build(); //devolve 204 indicando que foi ok e que não tem conteúdo para retornar.
     }
 
     @GetMapping("/{id}")

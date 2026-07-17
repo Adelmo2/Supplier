@@ -1,17 +1,17 @@
-package pre_supplier.supplier.preFornecedor.dto;
+package pre_supplier.supplier.domain.preFornecedor.dto;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import pre_supplier.supplier.endereco.DadosEndereco;
-import pre_supplier.supplier.preFornecedor.ClasseJuridico;
+import pre_supplier.supplier.domain.endereco.DadosEndereco;
+import pre_supplier.supplier.domain.preFornecedor.ClasseJuridico;
 
 import java.util.Date;
 
 public record DadosCadastroPreFornecedor(
 
-        @NotBlank
+        @NotBlank(message = "Nome é Obrigatório...")
         String nome_fornecedor,
 
         @NotBlank
@@ -19,7 +19,7 @@ public record DadosCadastroPreFornecedor(
 
         String nome_compras,
 
-        @NotNull
+        @NotNull(message = "O Campo Fisico/Juridico não pode ser diferente de F/j")
         ClasseJuridico classe_juridico,
 
         String cnpj_cpf,
