@@ -6,7 +6,6 @@ public record Contato(
         String cargo,
         String telefone,
         String email,
-        String observacao,
-        String teste
+        String observacao
 ) {
 }
