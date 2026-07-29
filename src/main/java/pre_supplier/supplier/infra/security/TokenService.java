@@ -3,6 +3,7 @@ package pre_supplier.supplier.infra.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pre_supplier.supplier.domain.usuario.Usuario;
@@ -14,22 +15,32 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
-    @Value("${api.security.token.secret}") //passar o nome que esta no "api.security.token.secret" do arquivo application.propertis
+    @Value("${api.security.token.secret}")
     private String secret;
 
     public String gerarToken(Usuario usuario) {
-        System.out.println("**** SECRET: " + secret);
         try {
-            //var algoritmo = Algorithm.HMAC256(secret);
             var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
-                    .withIssuer("API PreFornecedor")
+                    .withIssuer("API pre_supplier.supplier")
                     .withSubject(usuario.getLogin())
                     .withExpiresAt(dataExpiracao())
-//                    .withClaim("id", usuario.getId())
                     .sign(algoritmo);
         } catch (JWTCreationException exception){
-            throw new RuntimeException("erro ao gerar token JWT", exception);
+            throw new RuntimeException("erro ao gerar token jwt", exception);
+        }
+    }
+
+    public String getSubject(String tokenJWT) {
+        try {
+            var algoritmo = Algorithm.HMAC256(secret);
+            return JWT.require(algoritmo)
+                    .withIssuer("API pre_supplier.supplier")
+                    .build()
+                    .verify(tokenJWT)
+                    .getSubject();
+        } catch (JWTVerificationException exception) {
+            throw new RuntimeException("Token JWT inválido ou expirado!");
         }
     }
 
