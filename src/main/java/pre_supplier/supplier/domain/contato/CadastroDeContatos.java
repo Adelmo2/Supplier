@@ -15,7 +15,7 @@ public class CadastroDeContatos {
     @Autowired
     private PreFornecedorRepository preFornecedorRepository;
 
-    public void cadastrar(DadosCadastroContato dados) {
+    public DadosDetalhamentoContato cadastrar(DadosCadastroContato dados) {
         if (!preFornecedorRepository.existsById(dados.idPreFornecedor())) {
             throw new validacaoException("Id do Pre Fornecedor não existe!..");
         }
@@ -33,8 +33,18 @@ public class CadastroDeContatos {
             throw new validacaoException("O Telefone inválido. Precisa no minimo 10 dígitos...");
         }
 
+
+        var temContato = contatoRepository.contatoDuplicado(dados.idPreFornecedor(), dados.nome()) ;
+        System.out.println(" ####### temContato:" + temContato);
+        if (temContato != null) {
+            throw new validacaoException("Nome já cadastrado para o fornecedor: " + dados.idPreFornecedor());
+        }
+
         var prefornecedor = preFornecedorRepository.findById(dados.idPreFornecedor()).get() ;
         var contato = new Contato(null,  prefornecedor, dados.nome(), dados.departamento(), dados.cargo(), dados.telefone(), dados.email(), dados.observacao() );
         contatoRepository.save(contato);
+
+        return new DadosDetalhamentoContato(contato);
+
     }
 }
