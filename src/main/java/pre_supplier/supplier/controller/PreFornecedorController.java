@@ -21,21 +21,28 @@ public class PreFornecedorController {
     @Autowired
     private PreFornecedorRepository repository;
 
+    @Autowired
+    private CadastroDePreFornceddores cadastroDePreFornceddores;
+
+//OK sem validações personalizadas
 //    @PostMapping
 //    @Transactional
-//    public void cadastrar(@RequestBody @Valid DadosCadastroPreFornecedor dados) {
-//        repository.save(new PreFornecedor(dados));
+//    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPreFornecedor dados, UriComponentsBuilder uriBuilder) {
+//        //é necessário retornar os codigos  201 (Created), para devolver o corpo, cabeçalho e o link do endereço.
+//        var preFornecedor = new PreFornecedor(dados);
+//        repository.save(preFornecedor);
+//
+//        var uri = uriBuilder.path("/prefornecedores/{id}").buildAndExpand(preFornecedor.getId()).toUri();
+//        return ResponseEntity.created(uri).body(new DadosDetalhamentoPreFornecedor(preFornecedor));
 //    }
 
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPreFornecedor dados, UriComponentsBuilder uriBuilder) {
-        //é necessário retornar os codigos  201 (Created), para devolver o corpo, cabeçalho e o link do endereço.
-        var preFornecedor = new PreFornecedor(dados);
-        repository.save(preFornecedor);
-
-        var uri = uriBuilder.path("/prefornecedores/{id}").buildAndExpand(preFornecedor.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DadosDetalhamentoPreFornecedor(preFornecedor));
+        //var preFornecedor = new PreFornecedor(dados);
+        //repository.save(preFornecedor);
+        var dto = cadastroDePreFornceddores.cadastrar(dados);
+        return ResponseEntity.ok(dto);
     }
 
     @GetMapping

@@ -97,6 +97,14 @@
 			<version>4.2.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+<!--			<version>2.0.2</version> versão instruida pela alura -->
+			<version>2.9.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

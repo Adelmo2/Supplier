@@ -12,6 +12,12 @@ public record DadosDetalhamentoContato(
     String observacao
 ) {
     public DadosDetalhamentoContato(Contato contato) {
-        this(contato.getId(), contato.getPreFornecedor().getId(), contato.departamento, contato.getCargo(), contato.getTelefone(), contato.getEmail(), contato.observacao);
+        this(contato.getId(),
+                contato.getPreFornecedor().getId(),
+                contato.departamento,
+                contato.getCargo(),
+                contato.getTelefone(),
+                contato.getEmail(),
+                contato.observacao);
     }
 }

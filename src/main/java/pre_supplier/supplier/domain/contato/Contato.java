@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import pre_supplier.supplier.domain.preFornecedor.PreFornecedor;
 
 @Table(name = "dat437")

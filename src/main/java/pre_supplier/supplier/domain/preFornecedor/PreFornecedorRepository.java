@@ -1,5 +1,6 @@
 package pre_supplier.supplier.domain.preFornecedor;
 
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +14,12 @@ public interface PreFornecedorRepository extends JpaRepository<PreFornecedor, Lo
             or p.stat_cancel is null
             """)
     Page<PreFornecedor> fornecedorAtivo(Pageable paginacao);
-    //ou se tivesse um campo do tipo boolean ativo seria =  Page<PreFornecedor> findAllByAtivoTrue(Pageable paginacao);
+
+    @Query("""
+            select max(p.nomefornecedor)
+            from PreFornecedor p
+            where
+            p.nomefornecedor = :nomePreFornecedor
+            """)
+    String  fornecedorDuplicado(String nomePreFornecedor);
 }
